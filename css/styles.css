@@ -1,6 +1,11 @@
+body {
+  font-family: Open Sans,sans-serif;
+  background-color: white;
+}
+
 .nav-container {
   background-color: rgb(61, 141, 34);
-  padding: 3em;
+  padding: 2em;
 }
 
 .nav {
@@ -8,9 +13,8 @@
   text-align: center;
   margin: auto;
   color: rgb(202, 216, 198);
-  font-family: Open Sans,sans-serif;
   font: 500;
-  font-size: 1.5em;
+  font-size: 1.2em;
   display: flex;
   flex-direction: row;
 }
@@ -25,11 +29,27 @@
   flex-grow: 7;
 }
 
-
-
 .nav li {
   text-transform: initial;
   display: inline;
   margin: 2em 1em;
 
+}
+
+.body-container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.lead {
+  width: 75%;
+  text-align: center;
+  margin: auto;
+}
+
+.promo {
+  font-size: 1.5em;
+  padding: 1.5em 2em;
+  margin: 0;
 }
