@@ -1,0 +1,35 @@
+.nav-container {
+  background-color: rgb(61, 141, 34);
+  padding: 3em;
+}
+
+.nav {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  color: rgb(202, 216, 198);
+  font-family: Open Sans,sans-serif;
+  font: 500;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+.company-name {
+  color: white;
+  flex-grow: 5;
+}
+
+.nav-buttons {
+  color: white;
+  flex-grow: 7;
+}
+
+
+
+.nav li {
+  text-transform: initial;
+  display: inline;
+  margin: 2em 1em;
+
+}
