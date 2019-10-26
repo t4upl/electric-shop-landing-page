@@ -7,10 +7,24 @@ let contactBigImageElement = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  addOnScrollForStickyMenu();
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
 }, false);
+
+function addOnScrollForStickyMenu() {
+  let contactBannerElement = document.getElementById("contact-banner");
+  let navContainerElement = document.getElementsByClassName("nav-container")[0];
+  window.addEventListener("scroll", () => {
+    var contactBannerElementTop = contactBannerElement.offsetTop + contactBannerElement.offsetHeight;
+    if (window.pageYOffset > contactBannerElementTop) {
+      navContainerElement.style.position = 'fixed';
+    } else {
+      navContainerElement.style.position = 'relative';
+    }
+  });
+}
 
 function addOnClickEventToProductContent() {
   let productContentElement = document.getElementById("products-sections-wrapper");
@@ -65,7 +79,6 @@ function onFirebaseResponse(e) {
   req = e.srcElement;
   if (req.readyState == 4) {
     if(req.status == 200) {
-      console.log(req.response);
       response = req.response;
       
       if (response == null) {
