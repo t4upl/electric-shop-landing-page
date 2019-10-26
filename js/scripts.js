@@ -2,12 +2,13 @@ const pageSize = 3;
 let news = null; 
 let newsOnSiteCounter = 0;
 let newsContentElement = null;
+let newsLoadMoreElement = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  newsContentElement = document.getElementById("news-content");
-  addOnClickEventToProductContent();
   initializeNews();
+  addOnClickEventToProductContent();
+  
 }, false);
 
 function addOnClickEventToProductContent() {
@@ -48,16 +49,18 @@ function addOnClickEventToProductContent() {
 }
 
 function initializeNews() {
+  newsContentElement = document.getElementById("news-content");
+  newsLoadMoreElement = document.getElementById("news-load-more");
+
   if (news == null) {
     let theUrl = 'https://elmet-8b418.firebaseio.com/news.json';
-
-
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, true);
     xmlHttp.onreadystatechange = onFirebaseResponse;
     xmlHttp.send(null);
-
   }
+
+  newsLoadMoreElement.addEventListener('click', addNewsToDom);
 }
 
 function onFirebaseResponse(e) {
@@ -124,6 +127,10 @@ function addNewsToDom() {
     newsContentElement.appendChild(div);
   } else {
     for (i = 0; i < pageSize; i++) {
+      if (newsOnSiteCounter >= news.length) {
+        break;
+      }
+
       let newsEntry = news[newsOnSiteCounter];
       let date = getDateString(newsEntry['date']);
       let content = newsEntry['content'];
@@ -145,6 +152,11 @@ function addNewsToDom() {
 
       newsContentElement.appendChild(div);
       newsOnSiteCounter++;
+    }
+
+    newsLoadMoreElement.classList.add("hidden");
+    if (news.length > newsOnSiteCounter) {
+      newsLoadMoreElement.classList.remove("hidden");
     }
   }
 }

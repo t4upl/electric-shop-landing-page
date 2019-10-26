@@ -79,6 +79,11 @@ body {
   font-style: italic;
 }
 
+#news-load-more {
+  font-size: 0.8em;
+  color: rgb(46, 105, 160);
+}
+
 #products-content li {
   list-style: disc;
   font-size: 0.8em;
@@ -93,9 +98,20 @@ body {
   padding: 0.5em;
   background-color: #777;
   font-size: 1.2em;
-  cursor: pointer;
 }
 
 #products-sections-wrapper {
   margin: 0 0 1em;
+}
+
+#products-contact {
+  color: rgb(46, 105, 160);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

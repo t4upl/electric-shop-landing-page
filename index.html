@@ -18,7 +18,7 @@
           EL-MET
         </div>
         <div class="nav-buttons">
-          <ul>
+          <ul class="clickable">
             <li>O nas</li>
             <li>Aktualności</li>
             <li>Produkty</li>
@@ -65,15 +65,16 @@
             Aktualności
           </div>
           <div id="news-content" class="section-content"></div>
+          <div id="news-load-more" class="hidden clickable">Starsze wiadomości</div>
         </div>
         <div id="products" class="section">
           <div class="section-title">
-                Produkty
+            Produkty
           </div>
           <div id="products-content" class="section-content">
             <div id="products-sections-wrapper">
               <div id="products-electrial">
-                <div id="products-electrial-title" class="product-title">
+                <div id="products-electrial-title" class="product-title clickable">
                   Artykuły elektryczne
                 </div>
                 <ul id="products-electrial-list" class="hidden">
@@ -96,7 +97,7 @@
                 </ul>
               </div>
               <div id="products-metal">
-                <div id="products-metal-title" class="product-title">
+                <div id="products-metal-title" class="product-title clickable">
                   Artykuły metalowe
                 </div>
                 <ul id="products-metal-list" class="hidden">
@@ -120,7 +121,7 @@
                 </ul>
               </div>
               <div id="products-building">
-                <div id="products-building-title" class="product-title">
+                <div id="products-building-title" class="product-title clickable">
                   Akcesoria budowlane
                 </div>
                 <ul id="products-building-list" class="hidden">
@@ -132,13 +133,16 @@
                 </ul>
               </div>
             </div>
-
             <div>
               To nie jest nasz pełny katalog produktów. Skontaktuj się z nami by
-              zadać pytanie o interesujący Cię produkt.
-              <span>Kontakt</span>
+              zadać pytanie o interesujący Cię produkt <span class="nowrap">
+                (<span id="products-contact" class="clickable">Kontakt</span>).
+              </span>
             </div>
           </div>
+        </div>
+        <div id="contact" class="section">
+
         </div>
       </div>
     </div>
