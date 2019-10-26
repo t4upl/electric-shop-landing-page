@@ -34,17 +34,14 @@ function addOnClickEventToProductContent() {
         sectionToBeToggled = productsBuildingListElement;
         break;
       default:
-        console.log('Cant match id ' + clickedElementId);
+        return;
     }
 
-    if (sectionToBeToggled.classList.length == 0) {
-      sectionToBeToggled.className += ' hidden';
+    if (sectionToBeToggled.classList.contains('hidden')) {
+      sectionToBeToggled.classList.remove('hidden');
     } else {
-      sectionToBeToggled.className = '';
+      sectionToBeToggled.classList.add('hidden');
     }
-
-
-    debugger;
   });
 }
 

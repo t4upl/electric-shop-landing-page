@@ -100,6 +100,10 @@ body {
   font-size: 1.2em;
 }
 
+.products-list {
+  margin: 0.5em 0;
+}
+
 #products-sections-wrapper {
   margin: 0 0 1em;
 }
@@ -114,4 +118,27 @@ body {
 
 .nowrap {
   white-space: nowrap;
+}
+
+.contact-subsection-title {
+  font-size: 1.2em;
+  margin: 1em 0 1em;
+}
+
+.contact-subsection-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.contact-subsection-left-column {
+  margin: 0 1.5em 0 0;
+}
+
+#contact-basic-contact-content li {
+  margin: 0.2em 0;
+}
+
+.text-align-center {
+  text-align: center;
 }
