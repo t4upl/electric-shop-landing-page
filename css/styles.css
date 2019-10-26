@@ -3,6 +3,15 @@ body {
   background-color: lightgray;
 }
 
+#contact-banner {
+  /* background-color: rgb(167, 167, 167); */
+  padding: 1em 0em 1em 2em;
+}
+
+.contact-banner-section {
+  margin: 0 1em;
+}
+
 .nav-container {
   background-color: rgb(61, 141, 34);
   padding: 2em;
@@ -96,8 +105,8 @@ body {
 
 .product-title {
   padding: 0.5em;
-  background-color: #777;
-  font-size: 1.2em;
+  background-color: rgb(167, 167, 167);
+  font-size: 1.1em;
 }
 
 .products-list {
@@ -141,4 +150,44 @@ body {
 
 .text-align-center {
   text-align: center;
+}
+
+#contact-google-map {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+#contact-images-wrapper {
+  margin: 1em 0;
+  text-align: justify;
+  display: inline;
+}
+
+#contact-images-wrapper img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px; 
+    width: auto; 
+    height: 10em;
+    display: inline-block;
+}
+
+#contact-images-wrapper img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+img#contact-images-big-image {
+  height: 30em;
+  width: 100%;
+  margin: 1em auto;
+  padding: 1em 0em 2em;
+  display: block;
+}
+
+img#contact-images-big-image.hidden {
+  display: none;
 }

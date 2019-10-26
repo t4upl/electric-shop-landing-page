@@ -3,12 +3,13 @@ let news = null;
 let newsOnSiteCounter = 0;
 let newsContentElement = null;
 let newsLoadMoreElement = null;
+let contactBigImageElement = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
   initializeNews();
   addOnClickEventToProductContent();
-  
+  addOnClickEventToContactImages();
 }, false);
 
 function addOnClickEventToProductContent() {
@@ -170,4 +171,18 @@ function getDateString(date) {
   }
 
   return dd + '-' + mm + '-' + date.getFullYear();
+}
+
+function addOnClickEventToContactImages() {
+  contactBigImageElement = document.getElementById("contact-images-big-image");
+  let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
+  contactImagesWrapperElement.addEventListener('click', event => {
+    let target = event.target;
+    if (target.getAttribute('id') == null) {
+      contactBigImageElement.classList.remove('hidden');
+      contactBigImageElement.setAttribute('src', target.getAttribute('src'));
+    }
+  });
+
+
 }
