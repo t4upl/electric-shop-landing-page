@@ -4,15 +4,50 @@ let newsOnSiteCounter = 0;
 let newsContentElement = null;
 
 
-
 document.addEventListener('DOMContentLoaded', function() {
   newsContentElement = document.getElementById("news-content");
-
+  addOnClickEventToProductContent();
   initializeNews();
 }, false);
 
-function initializeNews() {
+function addOnClickEventToProductContent() {
+  let productContentElement = document.getElementById("products-sections-wrapper");
+  let productsElectrialListElement = document.getElementById("products-electrial-list");
+  let productsMetalListElement = document.getElementById("products-metal-list");
+  let productsBuildingListElement = document.getElementById("products-building-list"); 
 
+  productContentElement.addEventListener("click", function(event) {
+    console.log(event.target);
+
+    let clickedElementId = event.target.getAttribute('id');
+    let sectionToBeToggled = null;
+
+    switch (clickedElementId) {
+      case 'products-electrial-title':
+        sectionToBeToggled = productsElectrialListElement;
+        break;
+      case 'products-metal-title':
+        sectionToBeToggled = productsMetalListElement;
+        break;
+      case 'products-building-title':
+        sectionToBeToggled = productsBuildingListElement;
+        break;
+      default:
+        console.log('Cant match id ' + clickedElementId);
+    }
+
+    if (sectionToBeToggled.classList.length == 0) {
+      sectionToBeToggled.className += ' hidden';
+    } else {
+      sectionToBeToggled.className = '';
+    }
+
+
+    debugger;
+  });
+}
+
+function initializeNews() {
   if (news == null) {
     let theUrl = 'https://elmet-8b418.firebaseio.com/news.json';
 
@@ -50,8 +85,6 @@ function onFirebaseResponse(e) {
 
 function getOrderedNewsAsArray(newsArray) {
   let news = [];
-
-
   Object.keys(newsArray).forEach( key => 
     {
       let date = key;
@@ -99,16 +132,16 @@ function addNewsToDom() {
       let div = document.createElement("div");
       let divDate = document.createElement("div");
       let divContent = document.createElement("div");
+      let hr = document.createElement("hr");
 
       div.appendChild(divDate);
       div.appendChild(divContent);
+      div.appendChild(hr);
       divDate.appendChild(document.createTextNode(date));
       divContent.appendChild(document.createTextNode(content));
 
       div.className += 'news-item';
       divDate.className += ' news-date';
-
-
 
       newsContentElement.appendChild(div);
       newsOnSiteCounter++;
