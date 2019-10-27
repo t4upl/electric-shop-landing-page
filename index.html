@@ -6,6 +6,7 @@
     <title>EL-MET</title>
     <meta name="description" content="The HTML5 Herald" />
     <meta name="author" content="Patryk Drabinski" />
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/reset.css?v=1.0" />
     <link rel="stylesheet" href="css/styles.css?v=1.0" />
     <link rel="stylesheet" href="css/carousel.css?v=1.0" />
@@ -15,29 +16,45 @@
   <body>
     <div id="contact-banner">
       <span>
-          <span>KONTAKT</span>
-          <span class="contact-banner-section">
-            <img src="/resources/phone-24px.svg" alt="" class="icon">
-            <span>22 853 57 03</span>
-          </span>
-          <span>
-            <img src="/resources/mail_outline-24px.svg" class="icon">
-            <span>elmet@onet.pl</span>
-          </span>
+        <span>KONTAKT</span>
+        <span class="contact-banner-section">
+          <img src="/resources/phone-24px.svg" alt="" class="icon" />
+          <span>22 853 57 03</span>
+        </span>
+        <span>
+          <img src="/resources/mail_outline-24px.svg" class="icon" />
+          <span>elmet@onet.pl</span>
+        </span>
       </span>
     </div>
     <div id="nav-container">
-      <div class="nav">
-        <div id="company-name">
-          EL-MET
+      <div id="nav-fullwidth">
+        <div id="nav">
+          <div id="company-name">
+            EL-MET
+          </div>
+          <div id="nav-buttons">
+            <ul class="clickable">
+              <span class="no-wrap">
+                  <li id="nav-button-about-us">O nas</li>
+                  <li id="nav-button-news">Aktualności</li>
+              </span>
+              <span class="no-wrap">
+                  <li id="nav-button-products">Produkty</li>
+                  <li id="nav-button-contact">Kontakt</li>
+              </span>
+              
+            </ul>
+          </div>
         </div>
-        <div id="nav-buttons">
-          <ul class="clickable">
-            <li id="nav-button-about-us">O nas</li>
-            <li id="nav-button-news">Aktualności</li>
-            <li id="nav-button-products">Produkty</li>
-            <li id="nav-button-contact">Kontakt</li>
-          </ul>
+      </div>
+      <div id="nav-arrow-container">
+        <div id="nav-arrow-container-interior" class="rotated">
+          <img
+            id="nav-arrow"
+            src="/resources/keyboard_arrow_down-24px.svg"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -227,23 +244,33 @@
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.8307515175266!2d21.019682115834428!3d52.173770579750055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471932c38d6e13fb%3A0x4dbc4cf13094c2cc!2sEl-Met.%20Artyku%C5%82y%20elektryczne%20i%20metalowe!5e0!3m2!1spl!2spl!4v1572109463099!5m2!1spl!2spl"
                   width="100%"
                   allowfullscreen=""
-                  async 
+                  async
                   defer
                 ></iframe>
               </div>
               <div id="contact-images-wrapper" class="clickable">
-                <img src="/resources/get-there/01.jpg" alt="">
-                <img src="/resources/get-there/02.jpg" alt="">
-                <img src="/resources/get-there/elmet_mapka.png" alt="">
+                <span>
+                    <img src="/resources/get-there/01.jpg" alt="" />
+                </span>
+                <span>
+                  <img src="/resources/get-there/02.jpg" alt="" />
+                </span>
+                <span>
+                    <img src="/resources/get-there/elmet_mapka.png" alt="" />
+                </span>
               </div>
               <div>
-                <img id="contact-images-big-image" src="/resources/get-there/01.jpg" alt="">
+                <img
+                  id="contact-images-big-image"
+                  src="/resources/get-there/01.jpg"
+                  alt=""
+                />
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <script src="js/scripts.js"></script>
   </body>

@@ -1,10 +1,12 @@
 body {
   font-family: Open Sans,sans-serif;
   background-color: lightgray;
+  font-size: calc(10px + .5vw);
 }
 
 #contact-banner {
   padding: 1em 0em 1em 2em;
+  background-color: rgb(161, 161, 161);
 }
 
 .contact-banner-section {
@@ -12,15 +14,17 @@ body {
 }
 
 #nav-container {
-  background-color: rgb(61, 141, 34);
-  padding: 0 2em;
   position: relative;
   width: 100%;
   top: 0;
   z-index: 10;
 }
 
-.nav {
+#nav-fullwidth {
+  background-color: rgb(61, 141, 34);
+}
+
+#nav {
   width: 60%;
   text-align: center;
   margin: auto;
@@ -33,6 +37,7 @@ body {
 
 #company-name {
   flex-grow: 5;
+  white-space: nowrap;
 }
 
 #nav-buttons {
@@ -55,11 +60,17 @@ body {
   background-color: rgb(45, 105, 26);
 }
 
-.body-container {
-  width: 75%;
+.body-container, #nav-arrow-container {
+  width: 100%;
   margin: auto;
   text-align: center;
   background-color: white;
+}
+
+#nav-arrow-container-interior {
+  width: 25%;
+  margin: auto;
+  background-color: lightgray;
 }
 
 .lead {
@@ -109,7 +120,7 @@ body {
   margin: 0 0 0 2em;
 }
 
-.hidden {
+.hidden, #nav.hidden {
   display: none;
 }
 
@@ -177,7 +188,7 @@ body {
 
 #contact-images-wrapper {
   margin: 1em 0;
-  text-align: left;
+  text-align: center;
   display: inline;
 }
 
@@ -190,6 +201,14 @@ body {
     display: inline-block;
 }
 
+#contact-images-wrapper span {
+  width: 10em; 
+  height: 10em;
+  display: inline-block;
+  overflow: hidden;
+}
+
+
 #contact-images-wrapper img:hover {
   box-shadow: 0 0 2px 1px rgb(2, 90, 119);
 }
@@ -200,4 +219,22 @@ img#contact-images-big-image {
   margin: 1em auto 2em;
   padding: 1em 0em 3em;
   display: block;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 768px) {
+  #nav-arrow-container {
+    display: none;
+  }
+
+  .body-container, #nav-arrow-container {
+    width: 75%;
+  }
 }

@@ -11,10 +11,25 @@ let navContainerElement = null;
 document.addEventListener('DOMContentLoaded', function() {
   addOnScrollForStickyMenu();
   addOnClickGoToSectionEvents();
+  addOnClickHideNavBar();
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
 }, false);
+
+function addOnClickHideNavBar() {
+  let navArrowContainerElement = document.getElementById("nav-arrow");
+  let navElement = document.getElementById("nav");
+  navArrowContainerElement.addEventListener('click', () => {
+    if (navElement.classList.contains('hidden')) {
+      navElement.classList.remove('hidden');
+      navArrowContainerElement.classList.remove('rotated');
+    } else {
+      navElement.classList.add('hidden');
+      navArrowContainerElement.classList.add('rotated')
+    }
+  });
+}
 
 function addOnScrollForStickyMenu() {
   let contactBannerElement = document.getElementById("contact-banner");
