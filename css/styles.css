@@ -11,7 +11,7 @@ body {
   margin: 0 1em;
 }
 
-.nav-container {
+#nav-container {
   background-color: rgb(61, 141, 34);
   padding: 2em;
   position: relative;
@@ -36,7 +36,7 @@ body {
   flex-grow: 5;
 }
 
-.nav-buttons {
+#nav-buttons {
   color: white;
   flex-grow: 7;
 }
@@ -68,7 +68,7 @@ body {
 }
 
 .section {
-  margin: 0 2em 0 1em;
+  margin: 2em 0em;
 }
 
 .section-title {
@@ -186,11 +186,7 @@ body {
 img#contact-images-big-image {
   height: 30em;
   width: 100%;
-  margin: 1em auto;
-  padding: 1em 0em 2em;
+  margin: 1em auto 2em;
+  padding: 1em 0em 3em;
   display: block;
-}
-
-img#contact-images-big-image.hidden {
-  display: none;
 }

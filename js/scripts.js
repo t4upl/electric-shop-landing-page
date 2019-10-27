@@ -1,13 +1,16 @@
 const pageSize = 3;
+const firebaseUrl = 'https://elmet-8b418.firebaseio.com/news.json';
 let news = null; 
 let newsOnSiteCounter = 0;
 let newsContentElement = null;
 let newsLoadMoreElement = null;
 let contactBigImageElement = null;
+let navContainerElement = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
   addOnScrollForStickyMenu();
+  addOnClickGoToSectionEvents();
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function addOnScrollForStickyMenu() {
   let contactBannerElement = document.getElementById("contact-banner");
-  let navContainerElement = document.getElementsByClassName("nav-container")[0];
+  navContainerElement = document.getElementById("nav-container");
   window.addEventListener("scroll", () => {
     var contactBannerElementTop = contactBannerElement.offsetTop + contactBannerElement.offsetHeight;
     if (window.pageYOffset > contactBannerElementTop) {
@@ -26,6 +29,65 @@ function addOnScrollForStickyMenu() {
   });
 }
 
+function addOnClickGoToSectionEvents() {
+  addOnClickGoToSectionEventsNavbar();
+  addOnClickGoToSectionEventsProductsContact();
+}
+
+function addOnClickGoToSectionEventsNavbar() {
+  let navBarElement = document.getElementById("nav-buttons");
+
+  let aboutUsElement = document.getElementById("about-us");
+  let newsElement = document.getElementById("news");
+  let productsElement = document.getElementById("products");
+  let contactElement = document.getElementById("contact");
+
+  navBarElement.addEventListener("click", event => {
+    let clickedElementId = event.target.getAttribute('id');
+    let sectionToScrollTo = null;
+    switch (clickedElementId) {
+      case 'nav-button-about-us':
+        sectionToScrollTo = aboutUsElement;
+        break;
+      case 'nav-button-news':
+        sectionToScrollTo = newsElement;
+        break;
+      case 'nav-button-products':
+        sectionToScrollTo = productsElement;
+        break;
+      case 'nav-button-contact':
+        sectionToScrollTo = contactElement;
+        break;
+      default:
+        return;
+    }
+    scrollToElement(sectionToScrollTo);
+  });
+}
+
+function addOnClickGoToSectionEventsProductsContact() {
+  let productsContactElement = document.getElementById("products-contact");
+  let contactElement = document.getElementById("contact");
+  productsContactElement.addEventListener("click", () => {
+    scrollToElement(contactElement);
+  });
+
+}
+
+function scrollToElement(domElement) {
+  let yScrollPosition = domElement.offsetTop - navContainerElement.offsetHeight;
+  let marginTop = window.getComputedStyle(domElement).marginTop;
+  if (marginTop.endsWith('px')) {
+    marginTop = marginTop.substr(0, marginTop.length - 2);
+    yScrollPosition = yScrollPosition - marginTop;
+  }
+
+  if (window.getComputedStyle(navContainerElement).position === 'relative') {
+    yScrollPosition = yScrollPosition - navContainerElement.offsetHeight;
+  }
+  window.scroll(window.scrollX, yScrollPosition);
+}
+
 function addOnClickEventToProductContent() {
   let productContentElement = document.getElementById("products-sections-wrapper");
   let productsElectrialListElement = document.getElementById("products-electrial-list");
@@ -33,8 +95,6 @@ function addOnClickEventToProductContent() {
   let productsBuildingListElement = document.getElementById("products-building-list"); 
 
   productContentElement.addEventListener("click", function(event) {
-    console.log(event.target);
-
     let clickedElementId = event.target.getAttribute('id');
     let sectionToBeToggled = null;
 
@@ -65,7 +125,7 @@ function initializeNews() {
   newsLoadMoreElement = document.getElementById("news-load-more");
 
   if (news == null) {
-    let theUrl = 'https://elmet-8b418.firebaseio.com/news.json';
+    let theUrl = firebaseUrl;
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, true);
     xmlHttp.onreadystatechange = onFirebaseResponse;
@@ -89,10 +149,11 @@ function onFirebaseResponse(e) {
       let newsArray =  JSON.parse(req.responseText);
       news = getOrderedNewsAsArray(newsArray);
       addNewsToDom();
-
     }
     else {
       console.log('Something went wrong with firebase');
+      news = [];
+      addNewsToDom();
     }
   }
 };
@@ -125,9 +186,11 @@ function getOrderedNewsAsArray(newsArray) {
     return news;
 }
 
-function News(date, content) {
-  this.date = date;
-  this.content = content;
+class News {
+  constructor(date, content) {
+    this.date = date;
+    this.content = content;
+  }
 }
 
 function addNewsToDom() {
@@ -192,7 +255,6 @@ function addOnClickEventToContactImages() {
   contactImagesWrapperElement.addEventListener('click', event => {
     let target = event.target;
     if (target.getAttribute('id') == null) {
-      contactBigImageElement.classList.remove('hidden');
       contactBigImageElement.setAttribute('src', target.getAttribute('src'));
     }
   });
