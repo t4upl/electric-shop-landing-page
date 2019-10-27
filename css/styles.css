@@ -13,7 +13,7 @@ body {
 
 #nav-container {
   background-color: rgb(61, 141, 34);
-  padding: 2em;
+  padding: 0 2em;
   position: relative;
   width: 100%;
   top: 0;
@@ -31,21 +31,28 @@ body {
   flex-direction: row;
 }
 
-.company-name {
-  color: white;
+#company-name {
   flex-grow: 5;
 }
 
 #nav-buttons {
-  color: white;
   flex-grow: 7;
+  
 }
 
-.nav li {
-  text-transform: initial;
-  display: inline;
-  margin: 2em 1em;
+#company-name, #nav-buttons li {
+  color: white;
+  display: inline-block;
+  padding: 1.5em 0;
+}
 
+#nav-buttons li {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#nav-buttons li:hover {
+  background-color: rgb(45, 105, 26);
 }
 
 .body-container {
@@ -68,7 +75,7 @@ body {
 }
 
 .section {
-  margin: 2em 0em;
+  margin: 1em 2em;
 }
 
 .section-title {
@@ -110,6 +117,10 @@ body {
   padding: 0.5em;
   background-color: rgb(167, 167, 167);
   font-size: 1.1em;
+}
+
+.product-title:hover {
+  background-color: rgb(109, 109, 109);
 }
 
 .products-list {
@@ -166,7 +177,7 @@ body {
 
 #contact-images-wrapper {
   margin: 1em 0;
-  text-align: justify;
+  text-align: left;
   display: inline;
 }
 
@@ -180,7 +191,7 @@ body {
 }
 
 #contact-images-wrapper img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 1px rgb(2, 90, 119);
 }
 
 img#contact-images-big-image {
