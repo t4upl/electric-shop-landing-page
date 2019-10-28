@@ -1,7 +1,7 @@
 body {
   font-family: Open Sans,sans-serif;
   background-color: lightgray;
-  font-size: calc(10px + .5vw);
+  font-size: calc(12px + .4vw);
 }
 
 #contact-banner {
@@ -44,13 +44,16 @@ body {
 
 #nav-buttons {
   flex-grow: 7;
-  
+}
+
+#nav-buttons ul {
+  margin: 0;
 }
 
 #company-name, #nav-buttons li {
   color: white;
   display: inline-block;
-  padding: 1.5em 0;
+  padding: 1.3em 0;
 }
 
 #nav-buttons li {
