@@ -127,11 +127,13 @@ function addOnClickEventToProductContent() {
         return;
     }
 
-    if (sectionToBeToggled.classList.contains('hidden')) {
-      sectionToBeToggled.classList.remove('hidden');
+    if (sectionToBeToggled.style.maxHeight){
+      sectionToBeToggled.style.maxHeight = null;
+      sectionToBeToggled.style.margin = "";
     } else {
-      sectionToBeToggled.classList.add('hidden');
-    }
+      sectionToBeToggled.style.maxHeight = sectionToBeToggled.scrollHeight + "px";
+      sectionToBeToggled.style.margin = "0.5em 0";
+    } 
   });
 }
 

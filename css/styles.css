@@ -130,12 +130,14 @@ body {
   font-size: 1.1em;
 }
 
-.product-title:hover {
-  background-color: rgb(109, 109, 109);
+.products-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
 }
 
-.products-list {
-  margin: 0.5em 0;
+.product-title:hover {
+  background-color: rgb(109, 109, 109);
 }
 
 #products-sections-wrapper {
@@ -227,6 +229,11 @@ img#contact-images-big-image {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+@keyframes expand-animation {
+  0% { background-color: red;}
+  100% { background-color: blue;}
 }
 
 @media screen and (min-width: 768px) {
