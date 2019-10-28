@@ -197,15 +197,16 @@ body {
 }
 
 #contact-images-wrapper img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px; 
+    
     width: auto; 
     height: 10em;
     display: inline-block;
 }
 
-#contact-images-wrapper span {
+#contact-images-wrapper > span {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px; 
   width: 10em; 
   height: 10em;
   display: inline-block;
@@ -213,8 +214,13 @@ body {
 }
 
 
-#contact-images-wrapper img:hover {
+#contact-images-wrapper > span:hover {
   box-shadow: 0 0 2px 1px rgb(2, 90, 119);
+}
+
+#contact-images-wrapper > span > div {
+  text-align: justify;
+  overflow: hidden;
 }
 
 img#contact-images-big-image {
