@@ -1,5 +1,5 @@
 const pageSize = 3;
-const firebaseUrl = 'https://elmet-8b418.firebaseio.com/news.json';
+const firebaseUrl = 'https://elmet-88207.firebaseio.com/news.json';
 const smallDevicesWidth = '768';
 let news = null; 
 let newsOnSiteCounter = 0;

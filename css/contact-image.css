@@ -1,0 +1,28 @@
+#contact-images-wrapper {
+  margin: 1em 0;
+  text-align: left;
+}
+
+#contact-images-wrapper img {
+    width: auto;
+    height: 10em;
+    display: inline-block;
+}
+
+.contact-image-box {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  overflow: hidden;
+}
+
+.contact-image-border {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 5%;
+  padding: 1em;
+}
+
+.contact-image-border:hover {
+  box-shadow: 0 0 2px 1px rgb(1, 109, 145);
+}

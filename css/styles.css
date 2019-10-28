@@ -193,41 +193,13 @@ body {
   vertical-align: middle;
 }
 
-#contact-images-wrapper {
-  margin: 1em 0;
-  text-align: center;
-  display: inline;
-}
-
-#contact-images-wrapper img {
-    
-    width: auto; 
-    height: 10em;
-    display: inline-block;
-}
-
-#contact-images-wrapper > span {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px; 
-  width: 10em; 
-  height: 10em;
-  display: inline-block;
-  overflow: hidden;
-}
-
-
-#contact-images-wrapper > span:hover {
-  box-shadow: 0 0 2px 1px rgb(2, 90, 119);
-}
-
 #contact-images-wrapper > span > div {
   text-align: justify;
   overflow: hidden;
 }
 
 img#contact-images-big-image {
-  height: 30em;
+  height: auto;
   width: 100%;
   margin: 1em auto 2em;
   padding: 1em 0em 3em;
@@ -240,11 +212,6 @@ img#contact-images-big-image {
 
 .no-wrap {
   white-space: nowrap;
-}
-
-@keyframes expand-animation {
-  0% { background-color: red;}
-  100% { background-color: blue;}
 }
 
 @media screen and (min-width: 768px) {
