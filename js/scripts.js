@@ -1,5 +1,6 @@
 const pageSize = 3;
 const firebaseUrl = 'https://elmet-8b418.firebaseio.com/news.json';
+const smallDevicesWidth = '768';
 let news = null; 
 let newsOnSiteCounter = 0;
 let newsContentElement = null;
@@ -11,22 +12,33 @@ let navContainerElement = null;
 document.addEventListener('DOMContentLoaded', function() {
   addOnScrollForStickyMenu();
   addOnClickGoToSectionEvents();
-  addOnClickHideNavBar();
+  
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
+
+  addMobileEvents();
 }, false);
+
+function addMobileEvents() {
+  if (parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth) {
+    addOnClickHideNavBar();
+  }
+}
 
 function addOnClickHideNavBar() {
   let navArrowContainerElement = document.getElementById("nav-arrow");
-  let navElement = document.getElementById("nav");
+  let navElement = document.getElementById("nav-fullwidth");
+  navElement.style.maxHeight = navElement.scrollHeight + "px";
+
   navArrowContainerElement.addEventListener('click', () => {
-    if (navElement.classList.contains('hidden')) {
-      navElement.classList.remove('hidden');
-      navArrowContainerElement.classList.remove('rotated');
+    let content = navElement;
+    if (content.style.maxHeight !== '0px'){
+      content.style.maxHeight = '0px';
+      navArrowContainerElement.classList.add('rotated');
     } else {
-      navElement.classList.add('hidden');
-      navArrowContainerElement.classList.add('rotated')
+      content.style.maxHeight = content.scrollHeight + "px";
+      navArrowContainerElement.classList.remove('rotated');
     }
   });
 }

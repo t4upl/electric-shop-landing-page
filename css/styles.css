@@ -22,6 +22,8 @@ body {
 
 #nav-fullwidth {
   background-color: rgb(61, 141, 34);
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
 }
 
 #nav {
