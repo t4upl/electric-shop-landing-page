@@ -214,6 +214,10 @@ img#contact-images-big-image {
   white-space: nowrap;
 }
 
+.hidden-on-mobile {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   #nav-arrow-container {
     display: none;
@@ -221,5 +225,9 @@ img#contact-images-big-image {
 
   .body-container, #nav-arrow-container {
     width: 75%;
+  }
+
+  #nav-fullwidth.hidden-on-mobile {
+    display: block;
   }
 }
