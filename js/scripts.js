@@ -21,9 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 function addMobileEvents() {
-  if (parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth) {
+  if (isMobile()) {
     addOnClickHideNavBar();
   }
+}
+
+function isMobile() {
+  return parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth;
 }
 
 function addOnClickHideNavBar() {
@@ -58,11 +62,24 @@ function addOnScrollForStickyMenu() {
 
 function addOnClickGoToSectionEvents() {
   addOnClickGoToSectionEventsNavbar();
+  addOnClickGoToSectionEventsNavbarMobile();
   addOnClickGoToSectionEventsProductsContact();
 }
 
 function addOnClickGoToSectionEventsNavbar() {
-  let navBarElement = document.getElementById("nav-buttons");
+  if (!isMobile()) {
+    addOnClickGoToSectionEventsNavbarGeneric("nav-buttons");
+  }
+}
+
+function addOnClickGoToSectionEventsNavbarMobile() {
+  if (isMobile()) {
+    addOnClickGoToSectionEventsNavbarGeneric("nav-buttons-mobile");
+  }
+}
+
+function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
+  let navBarElement = document.getElementById(navButtonsId);
 
   let aboutUsElement = document.getElementById("about-us");
   let newsElement = document.getElementById("news");
@@ -71,6 +88,11 @@ function addOnClickGoToSectionEventsNavbar() {
 
   navBarElement.addEventListener("click", event => {
     let clickedElementId = event.target.getAttribute('id');
+    if (!clickedElementId) {
+      return;
+    }
+
+    clickedElementId = clickedElementId.replace('-mobile', '');
     let sectionToScrollTo = null;
     switch (clickedElementId) {
       case 'nav-button-about-us':
@@ -89,6 +111,7 @@ function addOnClickGoToSectionEventsNavbar() {
         return;
     }
     scrollToElement(sectionToScrollTo);
+    event.stopPropagation();
   });
 }
 
