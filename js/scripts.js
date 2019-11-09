@@ -7,9 +7,11 @@ let newsContentElement = null;
 let newsLoadMoreElement = null;
 let contactBigImageElement = null;
 let navContainerElement = null;
+let isMobile = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  setGlobal();
   addOnScrollForStickyMenu();
   addOnClickGoToSectionEvents();
   
@@ -20,19 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
   addMobileEvents();
 }, false);
 
+function setGlobal() {
+  isMobile = parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth;
+  navContainerElement = getActiveStickyMenu();
+}
+
 function addMobileEvents() {
-  if (isMobile()) {
+  if (isMobile) {
     addOnClickHideNavBar();
   }
 }
 
-function isMobile() {
-  return parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth;
-}
-
 function addOnClickHideNavBar() {
   let navArrowContainerElement = document.getElementById("nav-arrow");
-  let navElement = document.getElementById("nav-fullwidth");
+  let navElement = document.getElementById("navbar-mobile");
   navElement.style.maxHeight = navElement.scrollHeight + "px";
 
   navArrowContainerElement.addEventListener('click', () => {
@@ -40,16 +43,17 @@ function addOnClickHideNavBar() {
     if (content.style.maxHeight !== '0px'){
       content.style.maxHeight = '0px';
       navArrowContainerElement.classList.add('rotated');
+      content.style.margin = "0";
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
       navArrowContainerElement.classList.remove('rotated');
+      content.style.margin = "";
     }
   });
 }
 
 function addOnScrollForStickyMenu() {
   let contactBannerElement = document.getElementById("contact-banner");
-  navContainerElement = document.getElementById("nav-container");
   window.addEventListener("scroll", () => {
     var contactBannerElementTop = contactBannerElement.offsetTop + contactBannerElement.offsetHeight;
     if (window.pageYOffset > contactBannerElementTop) {
@@ -60,6 +64,14 @@ function addOnScrollForStickyMenu() {
   });
 }
 
+function getActiveStickyMenu() {
+  let stickyMenuId = "nav-container";
+  if (isMobile) {
+    stickyMenuId = "nav-container-mobile";
+  }
+  return document.getElementById(stickyMenuId);
+}
+
 function addOnClickGoToSectionEvents() {
   addOnClickGoToSectionEventsNavbar();
   addOnClickGoToSectionEventsNavbarMobile();
@@ -67,26 +79,26 @@ function addOnClickGoToSectionEvents() {
 }
 
 function addOnClickGoToSectionEventsNavbar() {
-  if (!isMobile()) {
+  if (!isMobile) {
     addOnClickGoToSectionEventsNavbarGeneric("nav-buttons");
   }
 }
 
 function addOnClickGoToSectionEventsNavbarMobile() {
-  if (isMobile()) {
+  if (isMobile) {
     addOnClickGoToSectionEventsNavbarGeneric("nav-buttons-mobile");
   }
 }
 
 function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
   let navBarElement = document.getElementById(navButtonsId);
-
   let aboutUsElement = document.getElementById("about-us");
   let newsElement = document.getElementById("news");
   let productsElement = document.getElementById("products");
   let contactElement = document.getElementById("contact");
-
+  
   navBarElement.addEventListener("click", event => {
+    
     let clickedElementId = event.target.getAttribute('id');
     if (!clickedElementId) {
       return;

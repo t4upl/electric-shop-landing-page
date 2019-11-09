@@ -13,7 +13,7 @@ body {
   margin: 0 1em;
 }
 
-#nav-container {
+#nav-container, #nav-container-mobile {
   position: relative;
   width: 100%;
   top: 0;
@@ -67,7 +67,7 @@ body {
   background-color: rgb(45, 105, 26);
 }
 
-.body-container, #nav-arrow-container {
+.body-container, #nav-arrow-container-mobile {
   width: 100%;
   margin: auto;
   text-align: center;
@@ -233,7 +233,7 @@ img#contact-images-big-image {
   margin: 1em 0;
 }
 
-#company-name-mobile {
+#navbar-mobile {
   margin: 1em 0 0;
 }
 
