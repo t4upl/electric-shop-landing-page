@@ -320,6 +320,7 @@ function addOnClickEventToContactImages() {
     let target = event.target;
     if (target.getAttribute('id') == null) {
       contactBigImageElement.setAttribute('src', target.getAttribute('src'));
+      event.stopPropagation();
     }
   });
 
