@@ -1,0 +1,15 @@
+.rotated {
+  transform: rotate(180deg);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.hidden-on-mobile {
+  display: none;
+}
+
+.column {
+  flex: 50%;
+}
