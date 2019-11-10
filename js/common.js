@@ -42,3 +42,11 @@ function scrollToElement(domElement) {
     'behavior': 'smooth'
   });
 }
+
+function checkIfElementInViewport(element) {
+  let checkedOffset = element.offsetTop;
+  let isTopOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
+  checkedOffset = element.offsetTop + element.offsetHeight;
+  let isBottomOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
+  return isTopOnscreen && isBottomOnscreen;
+}

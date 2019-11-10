@@ -150,7 +150,9 @@ function addOnClickEventToContactImages() {
     if (img && img.getAttribute('src')) {
       contactBigImageElement.setAttribute('src', img.getAttribute('src'));
       blink(imageTopWrapper, 'contact-image-border-tapped');
-      scrollToElement(contactBigImageElement);
+      if (!checkIfElementInViewport(contactBigImageElement)) {
+        scrollToElement(contactBigImageElement);
+      }
       event.stopPropagation();
     }
   });
