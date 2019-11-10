@@ -1,5 +1,10 @@
 # Script to create folder ready to be deployed to server with all additional stuff removed
 
+# values to be set
+copy_with_resources=true
+
+# script start
+
 printf "location from which I am running script\n"
 printf "$PWD\n" 
 
@@ -25,6 +30,10 @@ rm -rf $deploy_folder
 printf '\n\ndoing stuff...'
 cp -r $elmet_path $deploy_folder
 
-rm -rf $deploy_folder/{.vscode,.git,other,.gitignore}
+rm -rf $deploy_folder/{.vscode,.git,other,.gitignore, .htaccess, robots.txt, sitemap.xml}
+
+if [ "$copy_with_resources" = "false" ]; then
+  rm -rf $deploy_folder/resources
+fi
 
 printf '\n\nDONE'

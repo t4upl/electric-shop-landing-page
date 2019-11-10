@@ -140,7 +140,8 @@ function addOnClickEventToProductContent() {
 function addOnClickEventToContactImages() {
   let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
   contactImagesWrapperElement.addEventListener('click', event => {
-    let imageTopWrapper = event.path.find( x => x.classList && x.classList.contains('contact-image-border'));
+    let path = event.path || (event.composedPath && event.composedPath());
+    let imageTopWrapper = path.find( x => x.classList && x.classList.contains('contact-image-border'));
     if (!imageTopWrapper) {
       event.stopPropagation();
       return;
