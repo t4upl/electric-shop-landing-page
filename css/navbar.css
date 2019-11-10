@@ -61,10 +61,11 @@
 /* Navbar mobile */
 #nav-buttons-mobile {
   display: flex;
+  margin: 0.5em 0 0;
 }
 
 .nav-button-item-mobile {
-  margin: 1em 0;
+  padding: 1.5em 0;
 }
 
 #navbar-mobile {
@@ -74,4 +75,7 @@
 #nav-container-mobile {
   transition: max-height 0.4s ease-out;
   text-align: center;
+}
+.navbar-tapped {
+  background-color: rgb(45, 105, 26);
 }

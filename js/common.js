@@ -16,8 +16,8 @@ function blink(element, blinkClass) {
   if (!element.classList.contains(blinkClass)) {
     element.classList.add(blinkClass);
     setTimeout(function() {
-      element.classList.add(blinkClass);
-    }, 500);
+      element.classList.remove(blinkClass);
+    }, 250);
   }
 }
 

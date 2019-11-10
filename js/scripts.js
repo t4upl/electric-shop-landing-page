@@ -59,8 +59,9 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
   let contactElement = document.getElementById("contact");
   
   navBarElement.addEventListener("click", event => {
-    
-    let clickedElementId = event.target.getAttribute('id');
+
+    let clickedElemenet = event.target;
+    let clickedElementId = clickedElemenet.getAttribute('id');
     if (!clickedElementId) {
       return;
     }
@@ -84,6 +85,10 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
         return;
     }
     scrollToElement(sectionToScrollTo);
+
+    if (isMobile) {
+      blink(clickedElemenet, "navbar-tapped");
+    }
     event.stopPropagation();
   });
 }
