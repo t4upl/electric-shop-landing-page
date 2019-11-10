@@ -1,4 +1,5 @@
 # Script to create folder ready to be deployed to server with all additional stuff removed
+# run from 'other' folder of project
 
 # values to be set
 copy_with_resources=true
