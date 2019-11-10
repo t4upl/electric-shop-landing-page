@@ -140,12 +140,17 @@ function addOnClickEventToProductContent() {
 function addOnClickEventToContactImages() {
   let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
   contactImagesWrapperElement.addEventListener('click', event => {
-    let target = event.target;
-    let imageTopWrapper = event.path.find( x => x.classList.contains('contact-image-border'));
+    let imageTopWrapper = event.path.find( x => x.classList && x.classList.contains('contact-image-border'));
+    if (!imageTopWrapper) {
+      event.stopPropagation();
+      return;
+    }
+
     let img = imageTopWrapper.querySelector('img');
     if (img && img.getAttribute('src')) {
       contactBigImageElement.setAttribute('src', img.getAttribute('src'));
       blink(imageTopWrapper, 'contact-image-border-tapped');
+      scrollToElement(contactBigImageElement);
       event.stopPropagation();
     }
   });

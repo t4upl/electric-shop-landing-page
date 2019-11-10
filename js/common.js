@@ -36,5 +36,9 @@ function scrollToElement(domElement) {
   if (window.getComputedStyle(navContainerElement).position === 'relative') {
     yScrollPosition = yScrollPosition - navContainerElement.offsetHeight;
   }
-  window.scroll(window.scrollX, yScrollPosition);
+  window.scroll({
+    'left': window.scrollX,
+    'top': yScrollPosition,
+    'behavior': 'smooth'
+  });
 }
