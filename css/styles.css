@@ -95,54 +95,6 @@ body {
   color: rgb(46, 105, 160);
 }
 
-.contact-subsection-title {
-  font-size: 1.2em;
-  margin: 1em 0 1em;
-}
-
-.contact-subsection-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-.contact-subsection-left-column {
-  margin: 0 1.5em 0 0;
-}
-
-#contact-basic-contact-content li {
-  margin: 0.2em 0;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-#contact-google-map {
-  width: 100%;
-  margin: 1em 0;
-}
-
-
-
-#contact-images-wrapper > span > div {
-  text-align: justify;
-  overflow: hidden;
-}
-
-img#contact-images-big-image {
-  height: auto;
-  width: 100%;
-  margin: 1em auto 2em;
-  padding: 1em 0em 3em;
-  display: block;
-}
-
-/* Contact images */
-.contact-image-border {
-  margin: 0.5em 0.5em;
-}
-
 @media screen and (min-width: 768px) {
   #body-content {
     width: 75%;

@@ -24,3 +24,17 @@ function blink(element, blinkClass) {
 function getIsMobile() {
   return parseInt(document.documentElement.clientWidth, 10) <= smallDevicesWidth;
 }
+
+function scrollToElement(domElement) {
+  let yScrollPosition = domElement.offsetTop - navContainerElement.offsetHeight;
+  let marginTop = window.getComputedStyle(domElement).marginTop;
+  if (marginTop.endsWith('px')) {
+    marginTop = marginTop.substr(0, marginTop.length - 2);
+    yScrollPosition = yScrollPosition - marginTop;
+  }
+
+  if (window.getComputedStyle(navContainerElement).position === 'relative') {
+    yScrollPosition = yScrollPosition - navContainerElement.offsetHeight;
+  }
+  window.scroll(window.scrollX, yScrollPosition);
+}

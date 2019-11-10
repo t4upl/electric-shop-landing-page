@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function setGlobal() {
   isMobile = getIsMobile();
   navContainerElement = getActiveStickyMenu();
+  contactBigImageElement = document.getElementById("contact-images-big-image");
 }
 
 function addMobileEvents() {
@@ -102,20 +103,6 @@ function addOnClickGoToSectionEventsProductsContact() {
 
 }
 
-function scrollToElement(domElement) {
-  let yScrollPosition = domElement.offsetTop - navContainerElement.offsetHeight;
-  let marginTop = window.getComputedStyle(domElement).marginTop;
-  if (marginTop.endsWith('px')) {
-    marginTop = marginTop.substr(0, marginTop.length - 2);
-    yScrollPosition = yScrollPosition - marginTop;
-  }
-
-  if (window.getComputedStyle(navContainerElement).position === 'relative') {
-    yScrollPosition = yScrollPosition - navContainerElement.offsetHeight;
-  }
-  window.scroll(window.scrollX, yScrollPosition);
-}
-
 function addOnClickEventToProductContent() {
   let productContentElement = document.getElementById("products-sections-wrapper");
   let productsElectrialListElement = document.getElementById("products-electrial-list");
@@ -151,15 +138,15 @@ function addOnClickEventToProductContent() {
 }
 
 function addOnClickEventToContactImages() {
-  contactBigImageElement = document.getElementById("contact-images-big-image");
   let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
   contactImagesWrapperElement.addEventListener('click', event => {
     let target = event.target;
-    if (target.getAttribute('id') == null && target.getAttribute('src')) {
-      contactBigImageElement.setAttribute('src', target.getAttribute('src'));
+    let imageTopWrapper = event.path.find( x => x.classList.contains('contact-image-border'));
+    let img = imageTopWrapper.querySelector('img');
+    if (img && img.getAttribute('src')) {
+      contactBigImageElement.setAttribute('src', img.getAttribute('src'));
+      blink(imageTopWrapper, 'contact-image-border-tapped');
       event.stopPropagation();
     }
   });
-
-
 }
