@@ -4,23 +4,29 @@
 echo $PWD
 elmet_index="$(echo `expr match "$PWD" '.*elmet'`)"
 elmet_path=${PWD:0:elmet_index}
-css_path=$elmet_path/css 
 
-echo $elmet_path
-echo $css_path
+uglify() {
+  resources_folder=$1
+  extension=$2
+  dstFile=$3
 
-extension=css
+  rm -f $dstFile
+  touch $dstFile
+  for f in $resources_folder/*.$extension
+  do
+    cat $f >> $dstFile
+  done
+  uglifycss $dstFile --output $dstFile
+}
 
-for f in $css_path/*.$extension
-do
-  echo "-------"
-  echo "Processing $f"
-  name=$(basename "$f" .$extension)
-  echo $name
-  path_to_file_after_min=$css_path/minified/$name.min.$extension
-  echo $path_to_file_after_min
-  uglifycss $f --output $path_to_file_after_min
+printf "\nuglifying css"
+css_resources_folder=$elmet_path/css
+css_dstFile=$elmet_path/css/minified/style.min.css
+uglify $css_resources_folder "css" "$elmet_path/css/minified/style.min.css"
 
-done
+printf "\nuglifying js"
+js_resources_folder=$elmet_path/js
+js_dstFile=$elmet_path/js/minified/script.min.js
+uglify $js_resources_folder "js" $js_dstFile
 
 printf "\nDONE"
