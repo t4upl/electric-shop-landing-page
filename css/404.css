@@ -26,6 +26,10 @@
   margin: 5em 0;
 }
 
+#body-content-404 .section-content {
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   #body-404 {
     padding: 0;
