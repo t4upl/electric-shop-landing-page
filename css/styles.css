@@ -91,8 +91,8 @@ body {
   margin: 0 0 1em;
 }
 
-#products-contact, #products-contact a {
-  color: rgb(46, 105, 160);
+#products-contact, #products-contact a, #home-link-404 {
+  color: hsl(209, 75%, 40%);
   text-decoration: none;
 }
 
