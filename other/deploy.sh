@@ -3,13 +3,13 @@
 
 # values to be set
 copy_with_resources=true
+deploy_folder_name=elmet_deploy
 
 # script start
 
 printf "location from which I am running script\n"
 printf "$PWD\n" 
 
-deploy_folder_name=elmet_deploy
 
 elmet_index="$(echo `expr match "$PWD" '.*elmet'`)"
 elmet_path=${PWD:0:elmet_index}

@@ -8,6 +8,7 @@ let newsLoadMoreElement = null;
 let contactBigImageElement = null;
 let navContainerElement = null;
 let isMobile = null;
+let isSafari = null;
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,12 +21,31 @@ document.addEventListener('DOMContentLoaded', function() {
   addOnClickEventToContactImages();
 
   addMobileEvents();
+  addSafariActions();
 }, false);
+
+function addSafariActions() {
+  if (isSafari) {
+    replaceWebpWithJp2InContactImages();
+  }
+}
+
+function replaceWebpWithJp2InContactImages() {
+  let images = Array.from(document.querySelectorAll("#contact-images-wrapper img"));
+  let contactImagesBigImage = document.getElementById('contact-images-big-image');
+  images.push(contactImagesBigImage);
+  images.forEach(img => img.setAttribute("srcset", img.getAttribute("srcset").replace(new RegExp('webp', 'ig'), 'jp2')))
+}
 
 function setGlobal() {
   isMobile = getIsMobile();
   navContainerElement = getActiveStickyMenu();
   contactBigImageElement = document.getElementById("contact-images-big-image");
+  isSafari = getIsSafari();
+}
+
+function getIsSafari() {
+  return navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
 }
 
 function addMobileEvents() {
