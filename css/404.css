@@ -1,6 +1,6 @@
 #body-404 {
-  padding: 3em 0;
   margin: 0;
+  background: white;
 }
 
 #body-404 .section-title {
@@ -24,4 +24,23 @@
 
 #body-container.body-container-404 {
   margin: 5em 0;
+}
+
+@media screen and (min-width: 768px) {
+  #body-404 {
+    padding: 0;
+    margin: 0;
+    background: lightgray;
+  }
+
+  #body-container.body-container-404 {
+    margin: 0 auto;
+    width: 75%;
+    background: white;
+  }
+
+  #body-content-404 {
+    margin: 0;
+    padding: 7em 0 11em;
+  }
 }
