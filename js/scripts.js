@@ -81,8 +81,8 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
   
   navBarElement.addEventListener("click", event => {
     event.preventDefault();
-    let clickedElemenet = event.target;
-    let clickedElementId = clickedElemenet.getAttribute('id') || getClosestAncestorsAttributeFromPath('id', getEventPath(event));
+    let clickedElemenet = getClosestAncestorsWithAttributeFromPath('id', getEventPath(event));
+    let clickedElementId = clickedElemenet.getAttribute('id');
     if (!clickedElementId) {
       return;
     }
@@ -114,9 +114,8 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
   });
 }
 
-function getClosestAncestorsAttributeFromPath(attribute, path) {
-  let ancestorWithAttribute = path.find(x => x.getAttribute(attribute) != null);
-  return ancestorWithAttribute ? ancestorWithAttribute.getAttribute(attribute) : null;
+function getClosestAncestorsWithAttributeFromPath(attribute, path) {
+  return path.find(x => x.getAttribute(attribute) != null);
 }
 
 function addOnClickGoToSectionEventsProductsContact() {
