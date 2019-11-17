@@ -27,8 +27,9 @@
   margin: 0;
 }
 
-#company-name, #nav-buttons li, #nav-container-mobile {
+#company-name, #nav-buttons, #nav-container-mobile, #nav-buttons a, #nav-buttons-mobile a {
   color: white;
+  text-decoration-line: none;
 }
 
 #company-name, #nav-buttons li {
@@ -69,7 +70,7 @@
 }
 
 #navbar-mobile {
-  margin: 2em 0 0;
+  margin: 2em 0 1.5em 0;
 }
 
 #nav-container-mobile {

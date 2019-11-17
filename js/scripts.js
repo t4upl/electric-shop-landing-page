@@ -80,9 +80,9 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
   let contactElement = document.getElementById("contact");
   
   navBarElement.addEventListener("click", event => {
-
+    event.preventDefault();
     let clickedElemenet = event.target;
-    let clickedElementId = clickedElemenet.getAttribute('id');
+    let clickedElementId = clickedElemenet.getAttribute('id') || getClosestAncestorsAttributeFromPath('id', getEventPath(event));
     if (!clickedElementId) {
       return;
     }
@@ -112,6 +112,11 @@ function addOnClickGoToSectionEventsNavbarGeneric(navButtonsId) {
     }
     event.stopPropagation();
   });
+}
+
+function getClosestAncestorsAttributeFromPath(attribute, path) {
+  let ancestorWithAttribute = path.find(x => x.getAttribute(attribute) != null);
+  return ancestorWithAttribute ? ancestorWithAttribute.getAttribute(attribute) : null;
 }
 
 function addOnClickGoToSectionEventsProductsContact() {
@@ -160,7 +165,7 @@ function addOnClickEventToProductContent() {
 function addOnClickEventToContactImages() {
   let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
   contactImagesWrapperElement.addEventListener('click', event => {
-    let path = event.path || (event.composedPath && event.composedPath());
+    let path = getEventPath(event);
     let imageTopWrapper = path.find( x => x.classList && x.classList.contains('contact-image-border'));
     if (!imageTopWrapper) {
       event.stopPropagation();

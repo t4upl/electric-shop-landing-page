@@ -50,3 +50,7 @@ function checkIfElementInViewport(element) {
   let isBottomOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
   return isTopOnscreen && isBottomOnscreen;
 }
+
+function getEventPath(event) {
+  return event.path || (event.composedPath && event.composedPath());
+}
