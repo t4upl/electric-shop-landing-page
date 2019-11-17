@@ -148,13 +148,19 @@ function addOnClickEventToContactImages() {
     }
 
     let img = imageTopWrapper.querySelector('img');
-    if (img && img.getAttribute('src')) {
-      contactBigImageElement.setAttribute('src', img.getAttribute('src'));
-      blink(imageTopWrapper, 'contact-image-border-tapped');
-      if (!checkIfElementInViewport(contactBigImageElement)) {
-        scrollToElement(contactBigImageElement);
+    if (img) {
+      if (img.getAttribute('src')) {
+        contactBigImageElement.setAttribute('src', img.getAttribute('src'));
       }
-      event.stopPropagation();
+      if (img.getAttribute('srcset')) {
+        contactBigImageElement.setAttribute('srcset', img.getAttribute('srcset'));
+      }
     }
+    
+    blink(imageTopWrapper, 'contact-image-border-tapped');
+    if (!checkIfElementInViewport(contactBigImageElement)) {
+      scrollToElement(contactBigImageElement);
+    }
+    event.stopPropagation();
   });
 }
