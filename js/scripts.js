@@ -147,8 +147,10 @@ function getClosestAncestorsWithAttributeFromPath(attribute, path) {
 function addOnClickGoToSectionEventsProductsContact() {
   let productsContactElement = document.getElementById("products-contact");
   let contactElement = document.getElementById("contact");
-  productsContactElement.addEventListener("click", () => {
+  productsContactElement.addEventListener("click", (event) => {
+    event.preventDefault();
     scrollToElement(contactElement);
+    event.stopPropagation();
   });
 
 }

@@ -22,7 +22,7 @@ uglify() {
 printf "\nuglifying css"
 css_resources_folder=$elmet_path/css
 css_dstFile=$elmet_path/css/minified/style.min.css
-uglify $css_resources_folder "css" "$elmet_path/css/minified/style.min.css"
+uglify $css_resources_folder "css" "$elmet_path/css/minified/styles.min.css"
 
 printf "\nuglifying js"
 js_resources_folder=$elmet_path/js
