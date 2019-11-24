@@ -117,4 +117,9 @@ body {
     display: none;
   }
 
+  #end-stretcher {
+    margin: 0 0 3em;
+    padding: 0 0 1em;
+  }
+
 }

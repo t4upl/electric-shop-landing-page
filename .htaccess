@@ -1,4 +1,6 @@
 RewriteEngine On
+RewriteCond % ^www.elmet.org.pl/ [NC]
+RewriteRule ^(.*)$ https://elmet.org.pl/$1 [R=301,NC]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 

@@ -1,6 +1,18 @@
 const pageSize = 3;
 const firebaseUrl = 'https://elmet-88207.firebaseio.com/news.json';
 const smallDevicesWidth = '768';
+const fbLikeIframe= `<iframe
+src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=112&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+width="auto"
+height="25"
+style="border:none;overflow:hidden"
+scrolling="no"
+frameborder="0"
+allowTransparency="true"
+allow="encrypted-media"
+title="facebook like button"
+id="facebook-like-button"
+></iframe>`;
 let news = null; 
 let newsOnSiteCounter = 0;
 let newsContentElement = null;
@@ -23,7 +35,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   addMobileEvents();
   addSafariActions();
+  addIframes();
 }, false);
+
+function addIframes() {
+  addIframe('social-section-container', fbLikeIframe);
+
+}
+
+function addIframe(containerId, iframe) {
+  document.getElementById(containerId).insertAdjacentHTML( 'beforeend', fbLikeIframe);  
+}
 
 function centerImageThumbnailsInProduct() {
   let images = Array.from(document.querySelectorAll("#contact-images-wrapper img"));
