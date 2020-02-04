@@ -5,3 +5,8 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404.html
+
+# 7 days for most static assets
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico|jp2|webp|svg)$">
+Header set Cache-Control "max-age=604800, public"
+</filesMatch>
