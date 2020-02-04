@@ -9,10 +9,12 @@ function addOnClickHideNavBar() {
       content.style.maxHeight = '0px';
       navArrowContainerElement.classList.add('rotated');
       content.style.margin = "0";
+      content.style.padding = "0";
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
       navArrowContainerElement.classList.remove('rotated');
       content.style.margin = "";
+      content.style.padding = "";
     }
   });
 }

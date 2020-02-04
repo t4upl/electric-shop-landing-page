@@ -28,8 +28,17 @@ body {
 
 #promo {
   font-size: 1.5em;
-  margin: 0 2em 1.5em;
-  padding: 1.5em 0 0;
+  margin: 0 0 1.5em;
+  padding: 2em 1 0;
+}
+
+#promo__container {
+  padding: 3em 0 0;
+  margin: 0 0 2.5em;
+}
+
+#lightbulb-icons img {
+  width: 3em;
 }
 
 .section {

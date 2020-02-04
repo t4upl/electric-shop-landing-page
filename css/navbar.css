@@ -1,6 +1,10 @@
-#nav-fullwidth, #nav-container-mobile {
+#nav-fullwidth, #navbar-mobile {
   background-color: rgb(61, 141, 34);
   overflow: hidden;
+}
+
+#navbar-mobile {
+  padding: 1.5em 0 1em;
 }
 
 #nav {
@@ -67,10 +71,6 @@
 
 .nav-button-item-mobile {
   padding: 1.5em 0;
-}
-
-#navbar-mobile {
-  margin: 2em 0 1.5em 0;
 }
 
 #nav-container-mobile {
