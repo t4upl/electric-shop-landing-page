@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
-  centerImageThumbnailsInProduct();
+  // centerImageThumbnailsInProduct();
 
   addMobileEvents();
   addSafariActions();
@@ -35,6 +35,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function addIframes() {
   addIframe('social-section-container', fbLikeIframe);
   addIframe('contact-google-map', googleMapIframe);
+}
+
+function setHeightToContactImageBigImage() {
+  const bigImageId = 'contact-images-big-image';
+  const bigImageContainerId = 'contact-images-big-image-container';
+  const bigImage = document.getElementById(bigImageId);
+  const bigImageContainer = document.getElementById(bigImageContainerId);
+
+  if (!bigImageContainer.style.minHeight) {
+    bigImageContainer.style.minHeight = bigImage.offsetHeight + 'px';
+  }
 }
 
 function addIframe(containerId, iframe) {
@@ -214,6 +225,8 @@ function addOnClickEventToContactImages() {
       event.stopPropagation();
       return;
     }
+
+    setHeightToContactImageBigImage()
 
     let img = imageTopWrapper.querySelector('img');
     if (img) {

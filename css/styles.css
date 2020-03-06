@@ -28,7 +28,6 @@ body {
 
 #promo {
   font-size: 2.5em;
-  /* margin: 0 0 1.5em; */
   text-transform: uppercase;
 }
 
@@ -101,6 +100,10 @@ body {
   text-decoration: none;
 }
 
+#social-section-container {
+  margin: 1em 0;
+}
+
 @media screen and (min-width: 768px) {
   
   #body-content {
@@ -130,6 +133,15 @@ body {
   #end-stretcher {
     margin: 0 0 3em;
     padding: 0 0 1em;
+  }
+
+  .contact-image-gallery-border:hover {
+    background-color: rgba(49, 125, 151, 0.301);
+    border-color: rgba(1, 109, 145, 0.4);
+  }
+
+  .contact-image-gallery-border {
+    padding: 1.0em;
   }
 
 }
