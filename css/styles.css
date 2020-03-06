@@ -27,18 +27,18 @@ body {
 }
 
 #promo {
-  font-size: 1.5em;
-  margin: 0 0 1.5em;
-  padding: 2em 1 0;
+  font-size: 2.5em;
+  /* margin: 0 0 1.5em; */
+  text-transform: uppercase;
 }
 
 #promo__container {
-  padding: 3em 0 0;
-  margin: 0 0 2.5em;
+  padding: 5em 0 0;
+  margin: 0 0 4.0em;
 }
 
 #lightbulb-icons img {
-  width: 3em;
+  width: 2.8em;
 }
 
 .section {

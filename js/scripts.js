@@ -209,7 +209,7 @@ function addOnClickEventToContactImages() {
   let contactImagesWrapperElement = document.getElementById("contact-images-wrapper");
   contactImagesWrapperElement.addEventListener('click', event => {
     let path = getEventPath(event);
-    let imageTopWrapper = path.find( x => x.classList && x.classList.contains('contact-image-border'));
+    let imageTopWrapper = path.find( x => x.classList && x.classList.contains('contact-image-gallery-border'));
     if (!imageTopWrapper) {
       event.stopPropagation();
       return;
