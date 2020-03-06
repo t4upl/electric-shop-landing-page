@@ -7,7 +7,7 @@ deploy_folder_name=elmet_deploy
 
 # script start
 
-printf "location from which I am running script\n$PWD\n"
+printf "\nlocation from which I am running script\n$PWD\n"
 
 
 elmet_index="$(echo `expr match "$PWD" '.*elmet'`)"
@@ -32,18 +32,26 @@ printf "\nminification of css and js done."
 
 #remove old deploy folder and copy content of project to deploy folder
 rm -rf $deploy_folder
-printf '\n\ndoing stuff...'
+printf '\n\ncopy elemet from src to deploy'
 cp -r $elmet_path $deploy_folder
 
 # remove not deployables
+printf '\nremove not deployables'
 rm -rf $deploy_folder/{.vscode,.git,other,.gitignore,.htaccess,robots.txt,sitemap.xml}
 
 # remove resources if copy_with_resources set to 'false' 
 if [ "$copy_with_resources" = "false" ]; then
+  printf '\nremove resources' 
   rm -rf $deploy_folder/resources
 fi
 
 # minify html pages
-# html-minifier --input-dir $deploy_folder --output-dir $deploy_folder --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype
+printf "minify html\n"
+index_html=$deploy_folder/index.html
+printf "index_html: $index_html"
+./minify_html.sh $index_html 
 
-printf '\n\nDONE'
+# end
+printf "END"
+
+

@@ -1,1 +1,3 @@
 .vscode/launch.json
+css/minified/styles.min.css
+js/minified/script.min.js
