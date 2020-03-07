@@ -9,20 +9,6 @@
     display: inline-block;
 }
 
-.contact-image-box {
-  display: inline-block;
-  width: 10em;
-  height: 10em;
-  overflow: hidden;
-}
-
-.contact-image-border {
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-radius: 5%;
-  padding: 1em;
-}
-
 .contact-image-border-tapped {
   background: lightgray;
 }

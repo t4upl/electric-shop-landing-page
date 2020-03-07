@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeNews();
   addOnClickEventToProductContent();
   addOnClickEventToContactImages();
-  // centerImageThumbnailsInProduct();
 
   addMobileEvents();
   addSafariActions();
@@ -50,23 +49,6 @@ function setHeightToContactImageBigImage() {
 
 function addIframe(containerId, iframe) {
   document.getElementById(containerId).insertAdjacentHTML( 'beforeend', iframe);  
-}
-
-function centerImageThumbnailsInProduct() {
-  let images = Array.from(document.querySelectorAll("#contact-images-wrapper img"));
-  images.forEach(img => {
-    img.addEventListener('load', function() {
-      let box = findInSelfOrAncestors(img, (img) => img.classList.contains('contact-image-box'));
-      let boxBoundryBox = box.getBoundingClientRect();
-      let imgBoundry = img.getBoundingClientRect();
-      let distanceToMoveImageToLeft = (imgBoundry.width - boxBoundryBox.width) /2;
-      if (distanceToMoveImageToLeft < 0) {
-        return;
-      }
-      let transformValue = 'translateX(-' + distanceToMoveImageToLeft + 'px)';
-      img.style.transform = transformValue;
-    })    
-  }); 
 }
 
 function findInSelfOrAncestors(element, predicate) {
