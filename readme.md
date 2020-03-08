@@ -24,8 +24,11 @@ List of things that has been applied to improve SEO rating:
    - Added 'theme-color'
    - Google Search Console support in header
    - Internal linkinking on page
-- Other
+- .htaccess:
+   - Redirect to 'https' from 'http'
+   - Content policy
    - Custom 404 page
+- Other
    - CSS and JS minification
    - Added sitemap.xml
    - Google Search Console passed mobility friendly test
@@ -35,6 +38,7 @@ List of things that has been applied to improve SEO rating:
 Since I didn't use any builiding tool for the site I wrote scripts to make my life easier:
  - deploy.sh - copies all necessary files from the project to new folder (ready to be copy-pasted into server)
  - minify_css_and_js.sh - minifies js and css. In use by 'deploy.sh'. Probably won't be called on its own.
+ - minify_html.sh - minifies html
 
 For image optimalization and conversion I have used ImageMagick and Gimp.
 

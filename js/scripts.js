@@ -1,8 +1,8 @@
 const pageSize = 3;
 const firebaseUrl = 'https://elmet-88207.firebaseio.com/news.json';
 const smallDevicesWidth = '768';
-const fbLikeIframe= `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FElmetWalbrzyska&width=112&layout=button&action=like&size=small&show_faces=false&share=true&height=65&appId" 
-width="112" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" 
+const fbLikeIframe= `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FElmetWalbrzyska&width=400&layout=button&action=like&size=small&show_faces=false&share=true&height=65&appId" 
+height="25" width="170" style="border:none;text-align:center;margin:auto;" scrolling="no" frameborder="0" allowTransparency="true" 
 allow="encrypted-media"></iframe>`;
 const googleMapIframe = `<iframe
 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.8307515175266!2d21.019682115834428!3d52.173770579750055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471932c38d6e13fb%3A0x4dbc4cf13094c2cc!2sEl-Met.%20Artyku%C5%82y%20elektryczne%20i%20metalowe!5e0!3m2!1spl!2spl!4v1572109463099!5m2!1spl!2spl"
@@ -48,7 +48,7 @@ function setHeightToContactImageBigImage() {
 }
 
 function addIframe(containerId, iframe) {
-  document.getElementById(containerId).insertAdjacentHTML( 'beforeend', iframe);  
+  document.getElementById(containerId).insertAdjacentHTML('beforeend', iframe);  
 }
 
 function findInSelfOrAncestors(element, predicate) {
