@@ -37,7 +37,7 @@ function addIframes() {
 }
 
 function setHeightToContactImageBigImage() {
-  const bigImageId = 'contact-images-big-image';
+  let bigImageId = 'contact-images-big-image';
   const bigImageContainerId = 'contact-images-big-image-container';
   const bigImage = document.getElementById(bigImageId);
   const bigImageContainer = document.getElementById(bigImageContainerId);
@@ -208,7 +208,7 @@ function addOnClickEventToContactImages() {
       return;
     }
 
-    setHeightToContactImageBigImage()
+    setHeightToContactImageBigImage();
 
     let img = imageTopWrapper.querySelector('img');
     if (img) {

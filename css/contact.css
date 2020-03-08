@@ -37,8 +37,6 @@
   margin: 1em 0;
 }
 
-
-
 #contact-images-wrapper > span > div {
   text-align: justify;
   overflow: hidden;
@@ -88,10 +86,6 @@ img#contact-images-big-image {
   margin: 0.5em;
   background-color: #ddd;
   display: inline-block;
-}
-
-.contact-image-gallery-column {
-  /* flex: 1; */
 }
 
 #contact-images-big-image-container {
