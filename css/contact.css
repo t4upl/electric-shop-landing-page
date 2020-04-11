@@ -15,9 +15,10 @@
 }
 
 .contact-subsection-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 6em auto;
+  margin: 2em;
+  line-height: 1.5em;
 }
 
 .contact-subsection-left-column {
@@ -95,7 +96,7 @@ img#contact-images-big-image {
 }
 
 #contact-images-wrapper .contact-image-border-tapped.contact-image-gallery-border img {
-  opacity: 0.2;
+  opacity: 0.45;
 }
 
 @media screen and (min-width: 768px) {
