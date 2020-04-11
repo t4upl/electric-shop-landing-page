@@ -211,6 +211,18 @@ function addOnClickEventToContactImages() {
     setHeightToContactImageBigImage();
 
     let img = imageTopWrapper.querySelector('img');
+    onClickEventContactImagesSetSrcAttribute(img);
+    
+    blink(imageTopWrapper, 'contact-image-border-tapped');
+
+    let heightProcentOfBigImageToPerformScroll = isMobile ? 1 : 0.75 ;
+    if (!checkIfEnoughHeightOfElementInViewport(contactBigImageElement, heightProcentOfBigImageToPerformScroll)) {
+      scrollToElement(contactBigImageElement);
+    }
+    event.stopPropagation();
+  });
+
+  function onClickEventContactImagesSetSrcAttribute(img) {
     if (img) {
       if (img.getAttribute('src')) {
         contactBigImageElement.setAttribute('src', img.getAttribute('src'));
@@ -219,11 +231,7 @@ function addOnClickEventToContactImages() {
         contactBigImageElement.setAttribute('srcset', img.getAttribute('srcset'));
       }
     }
-    
-    blink(imageTopWrapper, 'contact-image-border-tapped');
-    if (!checkIfElementInViewport(contactBigImageElement)) {
-      scrollToElement(contactBigImageElement);
-    }
-    event.stopPropagation();
-  });
+  }
+
+
 }

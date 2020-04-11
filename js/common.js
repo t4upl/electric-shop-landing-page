@@ -13,11 +13,12 @@ function getDateString(date) {
 }
 
 function blink(element, blinkClass) {
+  let blinkTime = 300;
   if (!element.classList.contains(blinkClass)) {
     element.classList.add(blinkClass);
     setTimeout(function() {
       element.classList.remove(blinkClass);
-    }, 250);
+    }, blinkTime);
   }
 }
 
@@ -43,12 +44,10 @@ function scrollToElement(domElement) {
   });
 }
 
-function checkIfElementInViewport(element) {
-  let checkedOffset = element.offsetTop;
-  let isTopOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
-  checkedOffset = element.offsetTop + element.offsetHeight;
-  let isBottomOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
-  return isTopOnscreen && isBottomOnscreen;
+function checkIfEnoughHeightOfElementInViewport(element, elementHeightProcent) {
+  checkedOffset = element.offsetTop + element.offsetHeight * elementHeightProcent;
+  let isProcentOfElementHeightOnscreen = window.pageYOffset < checkedOffset && checkedOffset < window.pageYOffset + window.innerHeight;
+  return isProcentOfElementHeightOnscreen;
 }
 
 function getEventPath(event) {
